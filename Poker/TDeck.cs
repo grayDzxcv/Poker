@@ -21,7 +21,6 @@ namespace Poker
                     counter++;
                 }
             }
-            //shuffle();
         }
 
         public TCard getCardByNumber(int index)
@@ -30,22 +29,23 @@ namespace Poker
             return gameDeck[index];
         }
 
-        private void shuffle()
+        //Перетасовка колоды
+        public void shuffle()
         {
             int index = 0;
             int iterCount = 51;
             int nextRand;
-            TCard[] shuffledDeck = new TCard[52];
+            TCard tmp;
             Random rand = new Random();
             while (index < 52)
             {
                 nextRand = rand.Next(iterCount);
-                shuffledDeck[index] = gameDeck[nextRand];
-                //gameDeck = resizeDeck(gameDeck, nextRand);
+                tmp = gameDeck[index];
+                gameDeck[index] = gameDeck[nextRand];
+                gameDeck[index] = tmp;
                 iterCount--;
                 index++;
             }
-            gameDeck = shuffledDeck;
         }
  
     }

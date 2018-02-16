@@ -15,15 +15,26 @@ namespace Poker
         //Карты на столе
         private TCard[] table;
         //Раздача
-        private int distribution = 1;
-        private double blind = 2;
+        private int distribution;
+        private double blind;
 
         public TGame()
+        {
+            firstInitialization();
+            
+
+
+            deck.shuffle();
+            gameProcess();
+        }
+
+        private void firstInitialization()
         {
             player = new TPlayer();
             comuter1 = new TPlayer();
             comuter2 = new TPlayer();
-            gameProcess();
+            blind = 2;
+            distribution = 1;
         }
 
         private void checkBlind()
