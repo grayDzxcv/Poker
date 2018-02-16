@@ -1,0 +1,10 @@
+D:\emoskvc\source\repos\Poker\Poker\bin\Debug\Poker.exe.config
+D:\emoskvc\source\repos\Poker\Poker\bin\Debug\Poker.exe
+D:\emoskvc\source\repos\Poker\Poker\bin\Debug\Poker.pdb
+D:\emoskvc\source\repos\Poker\Poker\obj\Debug\Poker.csprojResolveAssemblyReference.cache
+D:\emoskvc\source\repos\Poker\Poker\obj\Debug\Poker.Form1.resources
+D:\emoskvc\source\repos\Poker\Poker\obj\Debug\Poker.Properties.Resources.resources
+D:\emoskvc\source\repos\Poker\Poker\obj\Debug\Poker.csproj.GenerateResource.Cache
+D:\emoskvc\source\repos\Poker\Poker\obj\Debug\Poker.csproj.CoreCompileInputs.cache
+D:\emoskvc\source\repos\Poker\Poker\obj\Debug\Poker.exe
+D:\emoskvc\source\repos\Poker\Poker\obj\Debug\Poker.pdb
