@@ -30,11 +30,7 @@ namespace Poker
                 deck.printDeck();
                 getBlindes(nBlind);
                 preflop();
-                console(player.getCards());
-
-
-
-                
+                console(player.getCards());                
                 break;
             }
 

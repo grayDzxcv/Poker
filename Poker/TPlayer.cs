@@ -9,16 +9,13 @@ namespace Poker
     class TPlayer
     {
         private string name;
-        private string image;
         private TCard[] hand = new TCard[2];
         private double money;
 
-        private static byte[] reserved = { 0, 0, 0 };
 
         public TPlayer()
         {
             getRandomName();
-            this.image = name;
             this.money = 10000d;
         }
 
@@ -26,19 +23,6 @@ namespace Poker
         {
             Random rnd = new Random();
             int k = rnd.Next(1, 8);
-            label:
-            while(true)
-            {
-                for(int i = 0; i < 3; i++)
-                {
-                    if (k == TPlayer.reserved[i])
-                    {
-                        k = rnd.Next(1, 8);
-                        goto label;
-                    }
-                }
-                break;
-            }
             switch(k)
             {
                 case 1: this.name =  "Черный плащ"; break;
@@ -71,7 +55,7 @@ namespace Poker
 
         public string getCards()
         {
-            return "Карты игрока " + name + ":" +hand[0].getName() + ", " + hand[1].getName();
+            return "Карты игрока " + name + ":" +hand[0].getCardName() + ", " + hand[1].getCardName();
         }
     }
 }

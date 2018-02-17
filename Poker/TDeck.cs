@@ -9,7 +9,6 @@ namespace Poker
     class TDeck
     {
         private TCard[] gameDeck = new TCard[52];
-
         public TDeck()
         {
             int counter = 0;
@@ -22,14 +21,11 @@ namespace Poker
                 }
             }
         }
-
         public TCard getCardByNumber(int index)
         {
             //Console.WriteLine(gameDeck[index].getName());
             return gameDeck[index];
         }
-
-        //Перетасовка колоды
         public TDeck shuffle()
         {
             TCard[] basicCards = this.getCards();
@@ -46,10 +42,9 @@ namespace Poker
                 counter--;
             }
 
-            shuffledDeck.setDeck(shuffledCards);
+            shuffledDeck.setCards(shuffledCards);
             return shuffledDeck;
         }
-
         private TCard[] delElem(TCard[] cards, int index)
         {
             TCard[] res = new TCard[cards.Length - 1];
@@ -64,34 +59,19 @@ namespace Poker
             }
             return res;
         }
-
         private TCard[] getCards()
         {
             return gameDeck;
         }
-        private void setDeck(TCard[] gameDeck)
+        private void setCards(TCard[] gameDeck)
         {
             this.gameDeck = gameDeck;
-        }
-
-        private void swapCards(int index1, int index2)
-        {
-            byte t1, t2, t3, t4;
-            t1 = gameDeck[index1].getSuit();
-            t2 = gameDeck[index1].getValue();
-            t3 = gameDeck[index2].getSuit();
-            t4 = gameDeck[index2].getValue();
-            gameDeck[index1].setSuit(t3);
-            gameDeck[index1].setValue(t4);
-            gameDeck[index2].setSuit(t1);
-            gameDeck[index2].setValue(t2);
-        }
-        
+        }        
         public void printDeck()
         {
             for (int i = 0; i < 52; i++)
             {
-                Console.WriteLine(gameDeck[i].getName());
+                Console.WriteLine(gameDeck[i].getCardName());
             }
         }
     }

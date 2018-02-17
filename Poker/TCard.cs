@@ -9,53 +9,139 @@ namespace Poker
 {
     class TCard
     {
-        private byte suit; //Буби, Крести, Черви, Пики
-        private byte value; //2 3 4 5 6 7 8 9 10 Валет Дама Король
-        private string image;
+        private int suit; //Буби, Крести, Черви, Пики
+        private int value; //2 3 4 5 6 7 8 9 10 Валет Дама Король
+
         private TCard()
         {
 
         }
-
-        public TCard(byte suit, byte value)
+        public TCard(int suit, int value)
         {
             this.suit = suit;
             this.value = value;
         }
 
-        public byte getSuit()
+        public int getSuit()
         {
             return suit;
         }
-
-        public byte getValue()
+        public int getValue()
         {
             return value;
         }
-
-        public string getImage()
+        public void setSuit(byte suit)
         {
-            return (suit + value).ToString();
+            this.suit = suit;
+        }
+        public void setValue(byte value)
+        {
+            this.value = value;
         }
 
-        public string getName()
+        public string getCardName()
         {
-            return getValueName() + " " + getSuitName();
-        }
-        public string getSuitName()
-        {
+            string strSuit = "";
+            string strValue = "";
+
             switch (suit)
             {
-                case 0: return "Буби";
-                case 1: return "Крести";
-                case 2: return "Черви";
-                case 3: return "Пики";
+                case 0:
+                    {
+                        strSuit = "Буби";
+                        break;
+                    }
+                case 1:
+                    {
+                        strSuit = "Крести";
+                        break;
+                    }
+                case 2:
+                    {
+                        strSuit = "Черви";
+                        break;
+                    }
+                case 3:
+                    {
+                        strSuit = "Пики";
+                        break;
+                    }
+            }
+            switch (value)
+            {
+                case 0:
+                    {
+                        strValue = "2";
+                        break;
+                    }
+                case 1:
+                    {
+                        strValue = "3";
+                        break;
+                    }
+                case 2:
+                    {
+                        strValue = "4";
+                        break;
+                    }
+                case 3:
+                    {
+                        strValue = "5";
+                        break;
+                    }
+                case 4:
+                    {
+                        strValue = "6";
+                        break;
+                    }
+                case 5:
+                    {
+                        strValue = "7";
+                        break;
+                    }
+                case 6:
+                    {
+                        strValue = "8";
+                        break;
+                    }
+                case 7:
+                    {
+                        strValue = "9";
+                        break;
+                    }
+                case 8:
+                    {
+                        strValue = "10";
+                        break;
+                    }
+                case 9:
+                    {
+                        strValue = "Валет";
+                        break;
+                    }
+                case 10:
+                    {
+                        strValue = "Дама";
+                        break;
+                    }
+                case 11:
+                    {
+                        strValue = "Король";
+                        break;
+                    }
+                case 12:
+                    {
+                        strValue = "Туз";
+                        break;
+                    }
             }
 
-            return "";
+            return strValue + " " + strSuit;
         }
+        
+        
 
-        public string getValueName()
+        public static string getNameByValue(int value)
         {
             switch (value)
             {
@@ -73,17 +159,7 @@ namespace Poker
                 case 11: return "Король";
                 case 12: return "Туз";
             }
-
             return "";
-        }
-
-        public void setSuit(byte suit)
-        {
-            this.suit = suit;
-        }
-        public void setValue(byte value)
-        {
-            this.value = value;
         }
     }
 }
