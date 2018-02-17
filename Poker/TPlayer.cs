@@ -53,12 +53,25 @@ namespace Poker
             
         }
 
-        public void setHand(TCard card1, TCard card2)
+        public void setHand(TCard[] twoCards)
         {
-            this.hand[0] = card1;
-            this.hand[1] = card2;
+            this.hand[0] = twoCards[0];
+            this.hand[1] = twoCards[1];
         }
 
+        public void setMoney(double money)
+        {
+            this.money = money;
+        }
         
+        public double getMoney()
+        {
+            return money;
+        }
+
+        public string getCards()
+        {
+            return "Карты игрока " + name + ":" +hand[0].getName() + ", " + hand[1].getName();
+        }
     }
 }

@@ -9,32 +9,78 @@ namespace Poker
     class TGame
     {
         private TPlayer player;
-        private TPlayer comuter1;
-        private TPlayer comuter2;
+        private TPlayer computer;
+        private TPlayer computer2;
         private TDeck deck;
         //Карты на столе
         private TCard[] table;
         //Раздача
         private int distribution;
         private double blind;
+        private int nBlind;
+        private static int cardNumber = 0;
 
         public TGame()
         {
             firstInitialization();
-            
+            while(true)
+            {
+                console("Раздача №:" + distribution);
+                deck = deck.shuffle();
+                deck.printDeck();
+                getBlindes(nBlind);
+                preflop();
+                console(player.getCards());
 
 
-            deck.shuffle();
-            gameProcess();
+
+                
+                break;
+            }
+
+
+
+
+        }
+
+        private void preflop()
+        {
+            player.setHand(getCards());
+            computer.setHand(getCards());
+            computer2.setHand(getCards());
+        }
+        private void getBlindes(int nBlind)
+        {
+            switch (nBlind)
+            {
+                case 0:
+                    {
+                        player.setMoney(player.getMoney() - blind);
+                        break;
+                    }
+                case 1:
+                    {
+                        computer.setMoney(computer.getMoney() - blind);
+                        break;
+                    }
+                case 2:
+                    {
+                        computer2.setMoney(computer2.getMoney() - blind);
+                        break;
+                    }
+            }
         }
 
         private void firstInitialization()
         {
             player = new TPlayer();
-            comuter1 = new TPlayer();
-            comuter2 = new TPlayer();
+            computer = new TPlayer();
+            computer2 = new TPlayer();
+            deck = new TDeck();
             blind = 2;
             distribution = 1;
+            nBlind = 0;
+            cardNumber = 0;
         }
 
         private void checkBlind()
@@ -57,31 +103,37 @@ namespace Poker
             river();
         }
 
-        private void preflop()
-        {
-            player.setHand(deck.getCardByNumber(0), deck.getCardByNumber(1));
-            comuter1.setHand(deck.getCardByNumber(2), deck.getCardByNumber(3));
-            comuter2.setHand(deck.getCardByNumber(4), deck.getCardByNumber(5));
-        }
+        
 
         private void flop()
         {
-            table[0] = deck.getCardByNumber(6);
-            table[1] = deck.getCardByNumber(7);
-            table[2] = deck.getCardByNumber(8);
+           
         }
 
         private void turn()
         {
-            table[3] = deck.getCardByNumber(9);
+          
         }
 
         private void river()
         {
-            table[4] = deck.getCardByNumber(10);
+           
         }
 
+        private void console(string str)
+        {
+            Console.WriteLine(str);
+        }
 
+        private int getCardNumber()
+        {
+            return TGame.cardNumber++;
+        }
 
+        private TCard[] getCards()
+        {
+            TCard[] twoCards = {deck.getCardByNumber(getCardNumber()), deck.getCardByNumber(getCardNumber())};
+            return twoCards;
+        }
     }
 }

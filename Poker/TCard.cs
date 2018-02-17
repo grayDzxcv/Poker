@@ -77,6 +77,13 @@ namespace Poker
             return "";
         }
 
-
+        public void setSuit(byte suit)
+        {
+            this.suit = suit;
+        }
+        public void setValue(byte value)
+        {
+            this.value = value;
+        }
     }
 }
